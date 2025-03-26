@@ -1,0 +1,246 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Хедер */
+header {
+    background-color: #348d3f; /* Зеленый фон */
+    color: white;
+    padding: 40px 0;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+header p {
+    font-size: 18px;
+    font-weight: 300;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+/* Основной блок */
+main {
+    padding: 20px;
+    justify-content: center;
+    align-items: center; 
+    max-width: 1300 px;
+    margin: 40px auto;
+    border-radius: 10px;
+}
+
+.intro-text {
+    text-align:start;
+    margin: 40px auto;
+}
+
+.intro-text h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #030303;
+    margin-bottom: 20px;
+}
+
+.intro-text p {
+    font-size: 16px;
+    color: #121212;
+    line-height: 1.6;
+}
+
+/* Кнопка "Создать резюме" */
+.start-btn {
+    justify-content: center;
+    display: inline-block;
+    background-color: #287640; /* Синий цвет */
+    color: white;
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: center;
+    margin: 0 auto;
+    text-decoration: none;
+}
+
+.start-btn:hover {
+    background-color: #283b1b; /* Темно-синий при наведении */
+}
+.instructions {
+    margin: 40px auto;
+    max-width: 1300px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.instructions h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.instructions p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.instructions ol {
+    list-style-type: none; /* Убираем стандартную нумерацию */
+    padding-left: 0;
+}
+
+.instructions ol li {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 15px;
+    line-height: 1.6;
+    position: relative; /* Для размещения цифры внутри списка */
+    padding-left: 35px; /* Отступ слева, чтобы цифра не накладывалась на текст */
+}
+
+.instructions ol li::before {
+    content: counter(step); /* Используем счетчик для нумерации */
+    counter-increment: step; /* Увеличиваем счетчик с каждым элементом */
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 24px; /* Размер цифры */
+    font-weight: bold; /* Сделаем цифры жирными */
+    color: #a033b3; /* Цвет цифры (синий) */
+}
+
+.instructions ol {
+    counter-reset: step 0; /* Инициализация счетчика на 0 */
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    header {
+        padding: 30px 0;
+    }
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    header p {
+        font-size: 16px;
+    }
+
+    main {
+        padding: 20px;
+        margin: 20px;
+    }
+
+    .intro-text h2 {
+        font-size: 28px;
+    }
+
+    .intro-text p {
+        font-size: 14px;
+    }
+
+    .start-btn {
+        font-size: 16px;
+        padding: 12px 25px;
+    }
+}
+@media (max-width: 768px) {
+    .instructions {
+        padding: 15px;
+    }
+
+    .instructions h3 {
+        font-size: 20px;
+    }
+
+    .instructions p {
+        font-size: 14px;
+    }
+
+    .start-btn {
+        padding: 12px 25px;
+        font-size: 16px;
+    }
+}
+/* Стили для контейнера с шагами */
+.steps {
+    max-width: 1300px;
+    margin: 40px auto;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Стили для списка шагов */
+.steps ol {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-between; /* Разделяем шаги по горизонтали */
+}
+
+/* Стили для каждого шага */
+.steps .step {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    color: #888; /* Цвет для неактивных шагов */
+    font-weight: bold;
+}
+
+/* Стили для номера в шаге */
+.steps .step .step-number {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #888; /* Цвет фона для всех шагов */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+
+/* Стили для активного шага */
+.steps .step.active .step-number {
+    background-color: #36902d; /* Цвет фона для активного шага */
+    color: white; /* Цвет текста для активного шага */
+}
+
+/* Цвет текста для активного шага */
+.steps .step.active {
+    color: #202920; /* Цвет текста для активного шага */
+}
+.steps .step:not(:last-child) {
+    position: relative;
+}
+
+.steps .step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 1px;
+    background-color: #888; /* Линия будет синяя */
+    top: 50%;
+    left: 100%;
+    margin-left: 10px;
+}
