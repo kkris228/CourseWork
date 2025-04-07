@@ -23,6 +23,7 @@
     
         <button class="start-btn">Создать резюме</button>
     </main>
+
     <div class="instructions">
         <h3>Пошаговая инструкция использования</h3>
         <p>Для составления резюме воспользуйтесь пошаговой инструкцией. Она поможет правильно заполнить все поля, не запутавшись в них:</p>
@@ -39,6 +40,7 @@
             <li>Укажите в блоке <strong>Дополнительная информация</strong> добавочные сведения о своей персоне — отметьте наличие медицинской книжки, отметьте категорию водительских прав, впишите рекомендации, расскажите о своих увлечениях, перечислите личные качества, дайте дополнительные сведения о себе персонально.</li>
         </ol>
     </div>
+    
     <div class="steps">
         <ol>
             <li class="step active">
@@ -55,5 +57,101 @@
             </li>
         </ol>
     </div>
+
+    <div class="form-container">
+        <h2>Основная информация</h2>
+        
+        <form class="info-form">
+            <div class="form-group">
+                <label for="last-name">Фамилия</label>
+                <input type="text" id="last-name" name="last-name" placeholder="Введите фамилию" />
+            </div>
+    
+            <div class="form-group">
+                <label for="first-name">Имя</label>
+                <input type="text" id="first-name" name="first-name" placeholder="Введите имя" />
+            </div>
+    
+            <div class="form-group">
+                <label for="position">Должность</label>
+                <input type="text" id="position" name="position" placeholder="Введите должность" />
+            </div>
+    
+            <div class="form-group">
+                <label for="phone">Номер телефона</label>
+                <input type="tel" id="phone" name="phone" placeholder="Введите номер телефона" />
+            </div>
+    
+            <div class="form-group">
+                <label for="address">Адрес</label>
+                <input type="text" id="address" name="address" placeholder="Введите адрес" />
+            </div>
+    
+            <div class="form-group">
+                <label for="email">Электронная почта</label>
+                <input type="email" id="email" name="email" placeholder="Введите почту" required />
+            </div>
+    
+            <div class="form-group" id="link-container">
+                <label for="links">Ссылки (например, GitHub, LinkedIn)</label>
+                <input type="url" id="links" name="links" placeholder="Введите ссылку на профиль" />
+                <button type="button" class="add-link">Добавить ссылку</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="about-me-container">
+        <h2>О себе</h2>
+        <div class="form-group">
+            <label for="about-me">Расскажите о себе</label>
+            <textarea id="about-me" name="about-me" placeholder="Введите информацию о себе" rows="6"></textarea>
+        </div>
+    </div>
+      
+    <div class="education-container">
+        <h2>Образование</h2>
+        <form class="education-form">
+            <div id="education-entries">
+                <!-- Первоначальный блок для ввода образования -->
+                <div class="education-entry">
+                    <div class="form-group">
+                        <label for="start-year">Начало обучения</label>
+                        <select class="start-year" name="start-year">
+                            <!-- Годы будут добавляться динамически с помощью JavaScript -->
+                        </select>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="end-year">Конец обучения</label>
+                        <select class="end-year" name="end-year">
+                            <option value="present">Настоящее время</option>
+                        </select>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="university">Учебное заведение</label>
+                        <input type="text" class="university" name="university" placeholder="Введите учебное заведение" />
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="specialty">Специальность</label>
+                        <input type="text" class="specialty" name="specialty" placeholder="Введите специальность" />
+                    </div>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <button type="button" id="add-education">Добавить образование</button>
+            </div>
+    
+            <div class="form-group">
+                <button type="submit">Сохранить</button>
+            </div>
+        </form>
+    </div>
+
+
+    <script src="js/education.js"></script>
+    <script src="js/linkcontainer.js"></script>     
 </body>
 </html>
