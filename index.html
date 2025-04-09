@@ -150,8 +150,51 @@
         </form>
     </div>
 
+    <div class="experience-container">
+        <h2>Опыт работы</h2>
+        <form class="experience-form">
+            <div id="experience-entries">
+                <div class="experience-entry">
+                    <div class="form-group">
+                        <label>Устроился</label>
+                        <div class="date-selects">
+                            <select class="start-month"></select>
+                            <select class="start-year"></select>
+                        </div>
+                    </div>
+    
+                    <div class="form-group">
+                        <label>Уволился</label>
+                        <div class="date-selects">
+                            <select class="end-month"></select>
+                            <select class="end-year">
+                                <option value="present">Настоящее время</option>
+                            </select>
+                        </div>
+                    </div>
+    
+                    <div class="form-group">
+                        <label>Должность</label>
+                        <input type="text" class="position" placeholder="Введите должность" />
+                    </div>
+    
+                    <div class="form-group">
+                        <label>Организация</label>
+                        <input type="text" class="company" placeholder="Введите название организации" />
+                    </div>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <button type="button" id="add-experience">Добавить опыт</button>
+            </div>
+        </form>
+    </div>
+    
+
 
     <script src="js/education.js"></script>
-    <script src="js/linkcontainer.js"></script>     
+    <script src="js/linkcontainer.js"></script>
+    <script src="js/workexperience.js"></script>     
 </body>
 </html>
