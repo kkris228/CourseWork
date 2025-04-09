@@ -442,3 +442,51 @@ h2.form-container {
 .remove-education:hover {
     background-color: #c0392b;
 }
+
+.experience-container {
+    max-width: 1300px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.experience-container h2 {
+    text-align: justify;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.experience-entry {
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.date-selects {
+    display: flex;
+    gap: 10px;
+}
+
+.date-selects select {
+    flex: 1;
+}
+
+/* Кнопка удаления */
+.remove-experience {
+    padding: 8px 16px;
+    background-color: #FF4136;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.remove-experience:hover {
+    background-color: #c0392b;
+}
