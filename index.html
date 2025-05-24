@@ -188,13 +188,149 @@
             <div class="form-group">
                 <button type="button" id="add-experience">Добавить опыт</button>
             </div>
+             <div class="form-group">
+                <button type="submit" id="save-experience">Сохранить</button>
+            </div>
         </form>
     </div>
     
+    <div class="techstack-container">
+    <h2>Стек технологий</h2>
+    <form class="techstack-form">
+        <div id="techstack-entries">
+            <div class="tech-entry">
+                <div class="form-group">
+                    <label>Название технологии</label>
+                    <input type="text" class="tech-name" placeholder="Например: React, Docker..." />
+                </div>
 
+                <div class="form-group">
+                    <label>Уровень владения</label>
+                    <select class="tech-level">
+                        <option>Новичок</option>
+                        <option>Средний</option>
+                        <option>Уверенный</option>
+                        <option>Эксперт</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Категория</label>
+                    <select class="tech-category">
+                        <option>Язык программирования</option>
+                        <option>Фреймворк</option>
+                        <option>База данных</option>
+                        <option>DevOps / Инструмент</option>
+                        <option>UI-библиотека</option>
+                        <option>Другое</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Опыт (в годах)</label>
+                    <input type="number" class="tech-experience" min="0" step="0.1" placeholder="например: 2.5" />
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <button type="button" id="add-tech">Добавить технологию</button>
+        </div>
+         <div class="form-group">
+                <button type="submit" id="save-tech">Сохранить</button>
+            </div>
+    </form>
+</div>
+
+<div class="projects-container">
+    <h2>Проекты</h2>
+    <form class="projects-form">
+        <div id="project-entries">
+            <div class="project-entry">
+                <div class="form-group">
+                    <label>Название проекта</label>
+                    <input type="text" class="project-name" placeholder="Например: CV Builder" />
+                </div>
+
+                <div class="form-group">
+                    <label>Краткое описание</label>
+                    <textarea class="project-description" rows="4" placeholder="Опишите суть проекта, цель, вашу роль..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Использованные технологии</label>
+                    <input type="text" class="project-tech" placeholder="React, Node.js, PostgreSQL..." />
+                </div>
+
+                <div class="form-group">
+                    <label>Ссылка на проект</label>
+                    <input type="url" class="project-link" placeholder="https://github.com/..." />
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <button type="button" id="add-project">Добавить проект</button>
+        </div>
+        <div class="form-group">
+                <button type="submit" id="save-project">Сохранить</button>
+            </div>
+    </form>
+</div>
+
+<div class="languages-container">
+    <h2>Языки</h2>
+    <form class="languages-form">
+        <div id="language-entries">
+            <div class="language-entry">
+                <div class="form-group">
+                    <label>Язык</label>
+                    <input type="text" class="language-name" placeholder="Например: Английский" />
+                </div>
+
+                <div class="form-group">
+                    <label>Уровень владения</label>
+                    <select class="language-level">
+                        <option value="A1">A1 — Начальный</option>
+                        <option value="A2">A2 — Элементарный</option>
+                        <option value="B1">B1 — Средний</option>
+                        <option value="B2">B2 — Выше среднего</option>
+                        <option value="C1">C1 — Продвинутый</option>
+                        <option value="C2">C2 — Свободное владение</option>
+                        <option value="native">Носитель языка</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <button type="button" id="add-language">Добавить язык</button>
+        </div>
+        <div class="form-group">
+            <button type="submit" id="save-languages">Сохранить</button>
+        </div>
+    </form>
+</div>
+
+<div class="photo-upload-container">
+    <h2>Фото профиля (необязательно)</h2>
+    <div class="form-group">
+        <input type="file" id="photo-input" accept="image/*" />
+        <small id="photo-hint" class="photo-hint">Можно пропустить. Максимум 2 МБ. Поддержка: .jpg, .png</small>
+        <p id="photo-error" class="photo-error" style="display:none;"></p>
+    </div>
+    <div id="photo-preview" class="photo-preview">
+        <p id="photo-preview-label">Фото не загружено</p>
+        <img id="photo-image" src="" alt="Фото профиля" style="display:none;" />
+    </div>
+</div>
 
     <script src="js/education.js"></script>
     <script src="js/linkcontainer.js"></script>
-    <script src="js/workexperience.js"></script>     
+    <script src="js/workexperience.js"></script>  
+    <script src="js/techstack.js"></script>  
+    <script src="js/projects.js"></script>
+    <script src="js/languages.js"></script> 
+    <script src="js/photo.js"></script>
 </body>
 </html>
