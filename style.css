@@ -345,6 +345,7 @@ h2.form-container {
     outline: none;
 }
 
+/*Образование*/
 .education-container {
     max-width: 1300px;
     margin: 40px auto;
@@ -442,7 +443,7 @@ h2.form-container {
 .remove-education:hover {
     background-color: #c0392b;
 }
-
+/*Опыт работы*/
 .experience-container {
     max-width: 1300px;
     margin: 40px auto;
@@ -474,7 +475,15 @@ h2.form-container {
 .date-selects select {
     flex: 1;
 }
-
+#add-experience {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
 /* Кнопка удаления */
 .remove-experience {
     padding: 8px 16px;
@@ -490,3 +499,237 @@ h2.form-container {
 .remove-experience:hover {
     background-color: #c0392b;
 }
+
+
+/*Cтек технологий*/
+.techstack-container {
+     max-width: 1300px;
+    margin: 40px auto;
+    font-family: 'Roboto', sans-serif;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.techstack-container h2 {
+    text-align: justify;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.tech-entry {
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    position: relative;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.remove-tech {
+    padding: 8px 16px;
+    background-color: #FF4136;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.remove-tech:hover {
+    background-color: #c0392b;
+}
+
+#add-tech {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#add-tech:hover {
+    background-color: #0056b3;
+}
+
+/*Проекты*/
+.projects-container {
+    max-width: 1300px;
+    margin: 40px auto;
+    font-family: 'Roboto', sans-serif;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.projects-container h2 {
+    text-align: justify;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.project-entry {
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    position: relative;
+}
+
+.project-entry .form-group textarea {
+    resize: vertical;
+}
+
+.remove-project {
+    padding: 8px 16px;
+    background-color: #FF4136;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.remove-project:hover {
+    background-color: #c0392b;
+}
+
+#add-project {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#add-project:hover {
+    background-color: #0056b3;
+}
+
+/*Языки*/
+.languages-container {
+    max-width: 1300px;
+    margin: 40px auto;
+    font-family: 'Roboto', sans-serif;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.languages-container h2 {
+    text-align: justify;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.language-entry {
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    position: relative;
+}
+
+.remove-language {
+    padding: 8px 16px;
+    background-color: #FF4136;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.remove-language:hover {
+    background-color: #c0392b;
+}
+
+#add-language {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#add-language:hover {
+    background-color: #0056b3;
+}
+
+/*Добавление фото*/
+.photo-upload-container {
+    max-width: 1300px;
+    margin: 40px auto;
+    font-family: 'Roboto', sans-serif;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.photo-upload-container h2 {
+    text-align: justify;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.photo-hint {
+    font-size: 13px;
+    color: #666;
+}
+
+.photo-error {
+    color: #d9534f;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.photo-preview {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.photo-preview img {
+    max-width: 200px;
+    border-radius: 10px;
+    border: 2px solid #ccc;
+    margin-top: 10px;
+}
+.photo-preview p {
+    color: #777;
+    font-size: 14px;
+    margin: 5px 0;
+}   
