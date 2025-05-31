@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="600" height="848" viewBox="0 0 600 848" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Фон -->
+    <rect width="600" height="848" fill="#FFFFFF"/>
+    
+    <!-- Боковая панель -->
+    <rect width="200" height="848" fill="#2C3639"/>
+    
+    <!-- Фото профиля -->
+    <circle cx="100" cy="120" r="70" fill="#DCD7C9"/>
+    
+    <!-- Информация в боковой панели -->
+    <text x="30" y="240" fill="#DCD7C9" font-family="Inter" font-size="18" font-weight="600">КОНТАКТЫ</text>
+    <rect x="30" y="260" width="140" height="1" fill="#A27B5C"/>
+    <text x="30" y="290" fill="#DCD7C9" font-family="Inter" font-size="14">+7 (999) 123-45-67</text>
+    <text x="30" y="315" fill="#DCD7C9" font-family="Inter" font-size="14">email@example.com</text>
+    <text x="30" y="340" fill="#DCD7C9" font-family="Inter" font-size="14">Москва, Россия</text>
+    
+    <text x="30" y="400" fill="#DCD7C9" font-family="Inter" font-size="18" font-weight="600">НАВЫКИ</text>
+    <rect x="30" y="420" width="140" height="1" fill="#A27B5C"/>
+    <text x="30" y="450" fill="#DCD7C9" font-family="Inter" font-size="14">• Web Development</text>
+    <text x="30" y="475" fill="#DCD7C9" font-family="Inter" font-size="14">• UI/UX Design</text>
+    <text x="30" y="500" fill="#DCD7C9" font-family="Inter" font-size="14">• JavaScript</text>
+    
+    <!-- Основной контент -->
+    <text x="240" y="80" fill="#2C3639" font-family="Inter" font-size="36" font-weight="bold">ИВАН ИВАНОВ</text>
+    <text x="240" y="120" fill="#A27B5C" font-family="Inter" font-size="20">Frontend Developer</text>
+    
+    <!-- Секции -->
+    <text x="240" y="180" fill="#2C3639" font-family="Inter" font-size="20" font-weight="600">ПРОФИЛЬ</text>
+    <rect x="240" y="200" width="320" height="1" fill="#A27B5C"/>
+    <rect x="240" y="220" width="320" height="60" fill="#F5F5F5"/>
+    
+    <text x="240" y="320" fill="#2C3639" font-family="Inter" font-size="20" font-weight="600">ОПЫТ РАБОТЫ</text>
+    <rect x="240" y="340" width="320" height="1" fill="#A27B5C"/>
+    <rect x="240" y="360" width="320" height="120" fill="#F5F5F5"/>
+    
+    <text x="240" y="520" fill="#2C3639" font-family="Inter" font-size="20" font-weight="600">ОБРАЗОВАНИЕ</text>
+    <rect x="240" y="540" width="320" height="1" fill="#A27B5C"/>
+    <rect x="240" y="560" width="320" height="80" fill="#F5F5F5"/>
+</svg> 

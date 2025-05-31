@@ -4,333 +4,384 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="css/test-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <title>Создание CV</title>
 </head>
 <body>
     <header>
         <div class="container">
             <h1>Создайте своё идеальное резюме</h1>
-            <p>Заполните поля, выберите шаблон и экспортируйте своё резюме в PDF.</p>
+            <p>Профессиональный конструктор резюме для успешного трудоустройства</p>
         </div>
     </header>
-    
-    <main>
-        <div class="intro-text">
-            <h2>Добро пожаловать!</h2>
-            <p>Заполните форму ниже, чтобы создать профессиональное резюме. Мы позаботимся о шаблоне и оформлении.</p>
-            <p><strong>Следуйте простым шагам:</strong> Введите данные, выберите стиль и загрузите своё фото.</p>
+
+    <div class="container">
+        <main>
+            <div class="intro-text">
+                <h2>Добро пожаловать в конструктор CV!</h2>
+                <p>Создайте профессиональное резюме всего за несколько минут. Наш интуитивный конструктор поможет вам создать резюме, которое выделит вас среди других кандидатов.</p>
+                <p>Просто следуйте пошаговым инструкциям и получите готовое резюме в формате PDF.</p>
+            </div>
+
+            <button class="button button-primary" id="start-btn">
+                Начать создание резюме
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M13.75 6.75L19.25 12L13.75 17.25" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M19 12H4.75" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </main>
+
+        <div class="steps">
+            <ol>
+                <li class="step active">
+                    <span class="step-number">1</span>
+                    Заполните форму
+                </li>
+                <li class="step">
+                    <span class="step-number">2</span>
+                    Выберите шаблон
+                </li>
+                <li class="step">
+                    <span class="step-number">3</span>
+                    Скачайте PDF
+                </li>
+            </ol>
         </div>
-    
-        <button class="start-btn">Создать резюме</button>
-    </main>
 
-    <div class="instructions">
-        <h3>Пошаговая инструкция использования</h3>
-        <p>Для составления резюме воспользуйтесь пошаговой инструкцией. Она поможет правильно заполнить все поля, не запутавшись в них:</p>
-        <ol>
-            <li>Приступайте к заполнению блока с основной информацией — укажите ФИО полностью и с большой буквы. Обязательно укажите должность и желаемую зарплату, не оставляйте эти поля пустыми.</li>
-            <li>Загрузите с компьютера фотографию — её наличие выделит ваше резюме среди остальных, повышая шансы на трудоустройство.</li>
-            <li>Укажите желаемую занятость, выбрав из списка. Также укажите предпочтительный рабочий график и отметьте готовность к командировкам (если такая готовность есть).</li>
-            <li>Впишите контактные данные в виде номера телефона и адреса электронной почты — внимательно проверяйте контакты, чтобы не допустить ошибок.</li>
-            <li>Заполните блок с личной информацией — город проживания, гражданство, дата рождения, семейное положение, образование. При необходимости отметьте возможность переезда и наличие/отсутствие детей.</li>
-            <li>Следующий блок крайне важен — укажите в нём опыт работы, начиная с последнего места, а не с первого. Укажите наименования работодателей, занимаемые должности, даты увольнения и трудоустройства. Отметьте должностные обязанности и достижения. При необходимости, добавьте следующих работодателей.</li>
-            <li>Укажите образование, начав с последнего места учёбы, а с первого — крайне желательно, чтобы на первом месте шло образование, в наибольшей степени соответствующее вакансии, что существенно увеличит шансы на трудоустройство.</li>
-            <li>Укажите пройденные курсы и тренинги — лучше всего те, что соответствуют открытой вакансии.</li>
-            <li>Отметьте наличие знаний иностранных языков и наличие компьютерных навыков, заодно указав наименования программ.</li>
-            <li>Укажите в блоке <strong>Дополнительная информация</strong> добавочные сведения о своей персоне — отметьте наличие медицинской книжки, отметьте категорию водительских прав, впишите рекомендации, расскажите о своих увлечениях, перечислите личные качества, дайте дополнительные сведения о себе персонально.</li>
-        </ol>
-    </div>
-    
-    <div class="steps">
-        <ol>
-            <li class="step active">
-                <span class="step-number">1</span>
-                Заполните все необходимые поля в форме ниже
-            </li>
-            <li class="step">
-                <span class="step-number">2</span>
-                Выберите подходящий шаблон
-            </li>
-            <li class="step">
-                <span class="step-number">3</span>
-                Скачайте готовое резюме
-            </li>
-        </ol>
-    </div>
-
-    <div class="form-container">
-        <h2>Основная информация</h2>
+        <div class="form-container">
+            <h2>Основная информация</h2>
+            <form class="info-form">
+                <div class="form-group">
+                    <label for="last-name">Фамилия</label>
+                    <input type="text" id="last-name" name="last-name" placeholder="Введите фамилию" required />
+                </div>
         
-        <form class="info-form">
-            <div class="form-group">
-                <label for="last-name">Фамилия</label>
-                <input type="text" id="last-name" name="last-name" placeholder="Введите фамилию" />
-            </div>
-    
-            <div class="form-group">
-                <label for="first-name">Имя</label>
-                <input type="text" id="first-name" name="first-name" placeholder="Введите имя" />
-            </div>
-    
-            <div class="form-group">
-                <label for="position">Должность</label>
-                <input type="text" id="position" name="position" placeholder="Введите должность" />
-            </div>
-    
-            <div class="form-group">
-                <label for="phone">Номер телефона</label>
-                <input type="tel" id="phone" name="phone" placeholder="Введите номер телефона" />
-            </div>
-    
-            <div class="form-group">
-                <label for="address">Адрес</label>
-                <input type="text" id="address" name="address" placeholder="Введите адрес" />
-            </div>
-    
-            <div class="form-group">
-                <label for="email">Электронная почта</label>
-                <input type="email" id="email" name="email" placeholder="Введите почту" required />
-            </div>
-    
-            <div class="form-group" id="link-container">
-                <label for="links">Ссылки (например, GitHub, LinkedIn)</label>
-                <input type="url" id="links" name="links" placeholder="Введите ссылку на профиль" />
-                <button type="button" class="add-link">Добавить ссылку</button>
-            </div>
-        </form>
-    </div>
+                <div class="form-group">
+                    <label for="first-name">Имя</label>
+                    <input type="text" id="first-name" name="first-name" placeholder="Введите имя" required />
+                </div>
+        
+                <div class="form-group">
+                    <label for="position">Желаемая должность</label>
+                    <input type="text" id="position" name="position" placeholder="Например: Frontend Developer" required />
+                </div>
+        
+                <div class="form-group">
+                    <label for="phone">Номер телефона</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required />
+                </div>
+        
+                <div class="form-group">
+                    <label for="email">Электронная почта</label>
+                    <input type="email" id="email" name="email" placeholder="example@email.com" required />
+                </div>
+        
+                <div class="form-group">
+                    <label for="location">Город проживания</label>
+                    <input type="text" id="location" name="location" placeholder="Например: Москва" required />
+                </div>
 
-    <div class="about-me-container">
-        <h2>О себе</h2>
-        <div class="form-group">
-            <label for="about-me">Расскажите о себе</label>
-            <textarea id="about-me" name="about-me" placeholder="Введите информацию о себе" rows="6"></textarea>
-        </div>
-    </div>
-      
-    <div class="education-container">
-        <h2>Образование</h2>
-        <form class="education-form">
-            <div id="education-entries">
-                <!-- Первоначальный блок для ввода образования -->
-                <div class="education-entry">
-                    <div class="form-group">
-                        <label for="start-year">Начало обучения</label>
-                        <select class="start-year" name="start-year">
-                            <!-- Годы будут добавляться динамически с помощью JavaScript -->
+                <div class="form-group" id="link-container">
+                    <label>Профессиональные ссылки</label>
+                    <div class="link-entry">
+                        <input type="url" class="social-link" placeholder="Например: https://github.com/username" />
+                        <select class="link-type">
+                            <option value="github">GitHub</option>
+                            <option value="linkedin">LinkedIn</option>
+                            <option value="portfolio">Портфолио</option>
+                            <option value="other">Другое</option>
                         </select>
-                    </div>
-    
-                    <div class="form-group">
-                        <label for="end-year">Конец обучения</label>
-                        <select class="end-year" name="end-year">
-                            <option value="present">Настоящее время</option>
-                        </select>
-                    </div>
-    
-                    <div class="form-group">
-                        <label for="university">Учебное заведение</label>
-                        <input type="text" class="university" name="university" placeholder="Введите учебное заведение" />
-                    </div>
-    
-                    <div class="form-group">
-                        <label for="specialty">Специальность</label>
-                        <input type="text" class="specialty" name="specialty" placeholder="Введите специальность" />
                     </div>
                 </div>
-            </div>
-    
-            <div class="form-group">
-                <button type="button" id="add-education">Добавить образование</button>
-            </div>
-    
-            <div class="form-group">
-                <button type="submit">Сохранить</button>
-            </div>
-        </form>
-    </div>
+                
+                <div class="form-group">
+                    <button type="button" class="button button-secondary" id="add-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M12 5v14m-7-7h14" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        Добавить ссылку
+                    </button>
+                </div>
 
-    <div class="experience-container">
-        <h2>Опыт работы</h2>
-        <form class="experience-form">
-            <div id="experience-entries">
-                <div class="experience-entry">
-                    <div class="form-group">
-                        <label>Устроился</label>
-                        <div class="date-selects">
-                            <select class="start-month"></select>
-                            <select class="start-year"></select>
+                <div class="form-group">   
+                    <button type="button" class="button button-primary" id="save-personal">
+                        Сохранить и продолжить
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <div class="about-me-container">
+            <h2>О себе</h2>
+            <div class="form-group">
+                <label for="about-me">Профессиональное резюме</label>
+                <textarea id="about-me" name="about-me" 
+                    placeholder="Опишите свой профессиональный опыт, ключевые достижения и навыки..." 
+                    rows="6"></textarea>
+            </div>
+            <div class="form-group">
+                <button type="button" class="button button-primary" id="save-aboutme">Сохранить и продолжить</button>
+            </div>
+        </div>
+          
+        <div class="education-container">
+            <h2>Образование</h2>
+            <form class="education-form">
+                <div id="education-entries">
+                    <div class="education-entry">
+                        <div class="form-group">
+                            <label for="start-year">Начало обучения</label>
+                            <select class="start-year" name="start-year">
+                                <!-- Годы будут добавляться динамически с помощью JavaScript -->
+                            </select>
                         </div>
-                    </div>
-    
-                    <div class="form-group">
-                        <label>Уволился</label>
-                        <div class="date-selects">
-                            <select class="end-month"></select>
-                            <select class="end-year">
+        
+                        <div class="form-group">
+                            <label for="end-year">Конец обучения</label>
+                            <select class="end-year" name="end-year">
                                 <option value="present">Настоящее время</option>
                             </select>
                         </div>
+        
+                        <div class="form-group">
+                            <label for="university">Учебное заведение</label>
+                            <input type="text" class="university" name="university" placeholder="Введите учебное заведение" />
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="specialty">Специальность</label>
+                            <input type="text" class="specialty" name="specialty" placeholder="Введите специальность" />
+                        </div>
                     </div>
+                </div>
     
-                    <div class="form-group">
-                        <label>Должность</label>
-                        <input type="text" class="position" placeholder="Введите должность" />
+                <div class="button-group">
+                    <button type="button" id="add-education" class="button-secondary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M12 5v14m-7-7h14" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        Добавить образование
+                    </button>
+                    <button type="button" id="save-education" class="button-primary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M5 13l4 4L19 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Сохранить
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <div class="experience-container">
+            <h2>Опыт работы</h2>
+            <form class="experience-form">
+                <div id="experience-entries">
+                    <div class="experience-entry">
+                        <div class="form-group">
+                            <label>Устроился</label>
+                            <div class="date-selects">
+                                <select class="start-month"></select>
+                                <select class="start-year"></select>
+                            </div>
+                        </div>
+        
+                        <div class="form-group">
+                            <label>Уволился</label>
+                            <div class="date-selects">
+                                <select class="end-month"></select>
+                                <select class="end-year">
+                                    <option value="present">Настоящее время</option>
+                                </select>
+                            </div>
+                        </div>
+        
+                        <div class="form-group">
+                            <label>Должность</label>
+                            <input type="text" class="position" placeholder="Введите должность" />
+                        </div>
+        
+                        <div class="form-group">
+                            <label>Организация</label>
+                            <input type="text" class="company" placeholder="Введите название организации" />
+                        </div>
                     </div>
-    
+                </div>
+        
+                <div class="button-group">
+                    <button type="button" id="add-experience" class="button-secondary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M12 5v14m-7-7h14" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        Добавить опыт
+                    </button>
+                    <button type="button" id="save-experience" class="button-primary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M5 13l4 4L19 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Сохранить
+                    </button>
+                </div>
+            </form>
+        </div>
+        
+        <div class="techstack-container">
+            <h2>Стек технологий</h2>
+            <form class="techstack-form">
+                <div id="techstack-entries">
+                    <div class="tech-entry">
+                        <div class="form-group">
+                            <label>Название технологии</label>
+                            <input type="text" class="tech-name" placeholder="Например: React, Docker..." />
+                        </div>
+
+                        <div class="form-group">
+                            <label>Опыт работы (в часах)</label>
+                            <input type="number" class="tech-experience" min="0" placeholder="Например: 2000" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button type="button" id="add-tech" class="button-secondary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M12 5v14m-7-7h14" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        Добавить технологию
+                    </button>
+                    <button type="button" id="save-tech" class="button-primary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M5 13l4 4L19 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Сохранить
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <div class="resume-section" id="projects-section">
+            <h2>Проекты</h2>
+            <div id="project-entries">
+                <div class="project-entry">
                     <div class="form-group">
-                        <label>Организация</label>
-                        <input type="text" class="company" placeholder="Введите название организации" />
+                        <label for="project-name">Название проекта</label>
+                        <input type="text" class="project-name" placeholder="Название проекта">
+                    </div>
+                    <div class="form-group">
+                        <label for="project-description">Описание</label>
+                        <textarea class="project-description" placeholder="Опишите ваш проект"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="project-tech">Технологии</label>
+                        <input type="text" class="project-tech" placeholder="Использованные технологии">
+                    </div>
+                    <div class="form-group">
+                        <label for="project-url">URL проекта</label>
+                        <input type="text" class="project-url" placeholder="http://...">
                     </div>
                 </div>
             </div>
-    
+            <button type="button" id="add-project" class="add-btn">+ Добавить проект</button>
+        </div>
+
+        <div class="languages-container">
+            <h2>Языки</h2>
+            <form class="languages-form">
+                <div id="language-entries">
+                    <div class="language-entry">
+                        <div class="form-group">
+                            <label>Язык</label>
+                            <input type="text" class="language-name" placeholder="Например: Английский" />
+                        </div>
+
+                        <div class="form-group">
+                            <label>Уровень владения</label>
+                            <select class="language-level">
+                                <option value="A1">A1 — Начальный</option>
+                                <option value="A2">A2 — Элементарный</option>
+                                <option value="B1">B1 — Средний</option>
+                                <option value="B2">B2 — Выше среднего</option>
+                                <option value="C1">C1 — Продвинутый</option>
+                                <option value="C2">C2 — Свободное владение</option>
+                                <option value="native">Носитель языка</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button type="button" id="add-language" class="button-secondary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M12 5v14m-7-7h14" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        Добавить язык
+                    </button>
+                    <button type="button" id="save-languages" class="button-primary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M5 13l4 4L19 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Сохранить
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <div class="photo-upload-container">
+            <h2>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <circle cx="12" cy="12" r="10" stroke-width="2"/>
+                    <path d="M8 14s1.5 2 4 2 4-2 4-2" stroke-width="2" stroke-linecap="round"/>
+                    <circle cx="9" cy="9" r="1" fill="currentColor"/>
+                    <circle cx="15" cy="9" r="1" fill="currentColor"/>
+                </svg>
+                Фото профиля
+            </h2>
             <div class="form-group">
-                <button type="button" id="add-experience">Добавить опыт</button>
+                <label class="photo-upload-label" for="photo-input">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" stroke-width="2" stroke-linecap="round"/>
+                        <polyline points="17 8 12 3 7 8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="12" y1="3" x2="12" y2="15" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <span>Нажмите, чтобы загрузить фото</span>
+                    <small class="photo-hint">JPG, PNG до 2 МБ</small>
+                </label>
+                <input type="file" id="photo-input" accept="image/*" />
+                <p id="photo-error" class="photo-error" style="display:none;"></p>
             </div>
-             <div class="form-group">
-                <button type="submit" id="save-experience">Сохранить</button>
+            <div id="photo-preview" class="photo-preview">
+                <p id="photo-preview-label">Фото не загружено</p>
+                <img id="photo-image" src="" alt="Фото профиля" style="display:none;" />
             </div>
-        </form>
+        </div>
+
+        <div class="form-group" style="text-align:center;">
+            <button type="button" id="save-all" class="save-all-button">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" stroke-width="2" stroke-linecap="round"/>
+                    <polyline points="7 10 12 15 17 10" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <line x1="12" y1="15" x2="12" y2="3" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                Собрать и скачать резюме
+            </button>
+        </div>
     </div>
-    
-    <div class="techstack-container">
-    <h2>Стек технологий</h2>
-    <form class="techstack-form">
-        <div id="techstack-entries">
-            <div class="tech-entry">
-                <div class="form-group">
-                    <label>Название технологии</label>
-                    <input type="text" class="tech-name" placeholder="Например: React, Docker..." />
-                </div>
 
-                <div class="form-group">
-                    <label>Уровень владения</label>
-                    <select class="tech-level">
-                        <option>Новичок</option>
-                        <option>Средний</option>
-                        <option>Уверенный</option>
-                        <option>Эксперт</option>
-                    </select>
-                </div>
+    <!-- Load dependencies first -->
+    <script src="js/test-data.js"></script>
+    <script src="data/collectData.js"></script>
 
-                <div class="form-group">
-                    <label>Категория</label>
-                    <select class="tech-category">
-                        <option>Язык программирования</option>
-                        <option>Фреймворк</option>
-                        <option>База данных</option>
-                        <option>DevOps / Инструмент</option>
-                        <option>UI-библиотека</option>
-                        <option>Другое</option>
-                    </select>
-                </div>
+    <!-- Load container scripts -->
+    <script src="containers/education.js"></script>
+    <script src="containers/languages.js"></script>
+    <script src="containers/linkcontainer.js"></script>  
+    <script src="containers/photo.js"></script>  
+    <script src="containers/projects.js"></script>
+    <script src="containers/techstack.js"></script> 
+    <script src="containers/workexperience.js"></script>
 
-                <div class="form-group">
-                    <label>Опыт (в годах)</label>
-                    <input type="number" class="tech-experience" min="0" step="0.1" placeholder="например: 2.5" />
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <button type="button" id="add-tech">Добавить технологию</button>
-        </div>
-         <div class="form-group">
-                <button type="submit" id="save-tech">Сохранить</button>
-            </div>
-    </form>
-</div>
-
-<div class="projects-container">
-    <h2>Проекты</h2>
-    <form class="projects-form">
-        <div id="project-entries">
-            <div class="project-entry">
-                <div class="form-group">
-                    <label>Название проекта</label>
-                    <input type="text" class="project-name" placeholder="Например: CV Builder" />
-                </div>
-
-                <div class="form-group">
-                    <label>Краткое описание</label>
-                    <textarea class="project-description" rows="4" placeholder="Опишите суть проекта, цель, вашу роль..."></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label>Использованные технологии</label>
-                    <input type="text" class="project-tech" placeholder="React, Node.js, PostgreSQL..." />
-                </div>
-
-                <div class="form-group">
-                    <label>Ссылка на проект</label>
-                    <input type="url" class="project-link" placeholder="https://github.com/..." />
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <button type="button" id="add-project">Добавить проект</button>
-        </div>
-        <div class="form-group">
-                <button type="submit" id="save-project">Сохранить</button>
-            </div>
-    </form>
-</div>
-
-<div class="languages-container">
-    <h2>Языки</h2>
-    <form class="languages-form">
-        <div id="language-entries">
-            <div class="language-entry">
-                <div class="form-group">
-                    <label>Язык</label>
-                    <input type="text" class="language-name" placeholder="Например: Английский" />
-                </div>
-
-                <div class="form-group">
-                    <label>Уровень владения</label>
-                    <select class="language-level">
-                        <option value="A1">A1 — Начальный</option>
-                        <option value="A2">A2 — Элементарный</option>
-                        <option value="B1">B1 — Средний</option>
-                        <option value="B2">B2 — Выше среднего</option>
-                        <option value="C1">C1 — Продвинутый</option>
-                        <option value="C2">C2 — Свободное владение</option>
-                        <option value="native">Носитель языка</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <button type="button" id="add-language">Добавить язык</button>
-        </div>
-        <div class="form-group">
-            <button type="submit" id="save-languages">Сохранить</button>
-        </div>
-    </form>
-</div>
-
-<div class="photo-upload-container">
-    <h2>Фото профиля (необязательно)</h2>
-    <div class="form-group">
-        <input type="file" id="photo-input" accept="image/*" />
-        <small id="photo-hint" class="photo-hint">Можно пропустить. Максимум 2 МБ. Поддержка: .jpg, .png</small>
-        <p id="photo-error" class="photo-error" style="display:none;"></p>
-    </div>
-    <div id="photo-preview" class="photo-preview">
-        <p id="photo-preview-label">Фото не загружено</p>
-        <img id="photo-image" src="" alt="Фото профиля" style="display:none;" />
-    </div>
-</div>
-
-    <script src="js/education.js"></script>
-    <script src="js/linkcontainer.js"></script>
-    <script src="js/workexperience.js"></script>  
-    <script src="js/techstack.js"></script>  
-    <script src="js/projects.js"></script>
-    <script src="js/languages.js"></script> 
-    <script src="js/photo.js"></script>
+    <!-- Load main form handler last -->
+    <script src="js/form-handler.js"></script>
 </body>
 </html>

@@ -1,0 +1,488 @@
+/* Общие стили для всех шаблонов */
+.resume-preview {
+    background: white;
+    width: 210mm;
+    min-height: 297mm;
+    padding: 0;
+    margin: 0 auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Современный шаблон */
+.resume-modern {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    font-family: 'Inter', sans-serif;
+}
+
+.resume-modern .sidebar {
+    background: #1B4B99;
+    color: white;
+    padding: 2rem;
+    min-height: 297mm;
+}
+
+.resume-modern .profile-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: 0 auto 2rem;
+    border: 3px solid white;
+    overflow: hidden;
+}
+
+.resume-modern .main-content {
+    padding: 2rem 3rem;
+}
+
+.resume-modern .section-title {
+    color: #1B4B99;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 2rem 0 1rem;
+    text-transform: uppercase;
+}
+
+.resume-modern .contact-item {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+}
+
+.resume-modern .skill-bar {
+    background: rgba(255,255,255,0.2);
+    height: 8px;
+    border-radius: 4px;
+    margin: 0.5rem 0;
+}
+
+.resume-modern .skill-level {
+    background: white;
+    height: 100%;
+    border-radius: 4px;
+}
+
+/* Креативный шаблон */
+.resume-creative {
+    font-family: 'Inter', sans-serif;
+    position: relative;
+    padding-top: 200px; /* Добавляем отступ для контента */
+}
+
+.resume-creative .header {
+    background: linear-gradient(135deg, #FF6B6B, #4ECDC4);
+    padding: 2rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: white;
+    height: 180px;
+    z-index: 1;
+}
+
+.resume-creative .header::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: white;
+    transform: skewY(-3deg);
+    z-index: -1;
+}
+
+.resume-creative .header h1,
+.resume-creative .header h2 {
+    position: relative;
+    z-index: 2;
+}
+
+.resume-creative .profile-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: -60px auto 20px;
+    border: 3px solid white;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+    background: white;
+}
+
+.resume-creative .profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.resume-creative .content-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    padding: 4rem 2rem 2rem;
+}
+
+.resume-creative .section-card {
+    background: #F8F9FA;
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.resume-creative .section-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.resume-creative .section-card.experience {
+    border-top: 3px solid #FF6B6B;
+}
+
+.resume-creative .section-card.education {
+    border-top: 3px solid #4ECDC4;
+}
+
+/* Классический шаблон */
+.resume-classic {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    font-family: 'Inter', sans-serif;
+}
+
+.resume-classic .sidebar {
+    background: #2C3639;
+    color: #DCD7C9;
+    padding: 2rem;
+    min-height: 297mm;
+}
+
+.resume-classic .profile-photo {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    margin: 0 auto 2rem;
+    background: #DCD7C9;
+    overflow: hidden;
+}
+
+.resume-classic .section-title {
+    color: #DCD7C9;
+    font-size: 1.125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 2rem 0 1rem;
+}
+
+.resume-classic .divider {
+    height: 1px;
+    background: #A27B5C;
+    margin: 0.5rem 0 1rem;
+}
+
+.resume-classic .main-content {
+    padding: 2rem 3rem;
+}
+
+.resume-classic .content-title {
+    color: #2C3639;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 1.5rem 0 1rem;
+    text-transform: uppercase;
+}
+
+.resume-classic .content-section {
+    margin-bottom: 2rem;
+}
+
+.resume-classic .content-divider {
+    height: 1px;
+    background: #A27B5C;
+    margin: 0.5rem 0 1.5rem;
+}
+
+/* Общие стили для элементов */
+.experience-item,
+.education-item {
+    margin-bottom: 1.5rem;
+}
+
+.experience-item h4,
+.education-item h4 {
+    font-weight: 600;
+    margin: 0 0 0.5rem;
+}
+
+.period {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0.25rem 0;
+}
+
+.description {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #444;
+}
+
+/* Стили для карточек выбора шаблона */
+.templates-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.template-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.template-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.template-card img {
+    width: 100%;
+    height: auto;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.template-card:hover img {
+    transform: scale(1.02);
+}
+
+.template-card h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #111827;
+    margin: 0;
+}
+
+.template-card p {
+    font-size: 1rem;
+    color: #6b7280;
+    text-align: center;
+    margin: 0.5rem 0;
+}
+
+.preview-btn, .select-btn {
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.preview-btn {
+    background-color: #f3f4f6;
+    color: #374151;
+}
+
+.preview-btn:hover {
+    background-color: #e5e7eb;
+}
+
+.select-btn {
+    background-color: #2563eb;
+    color: white;
+}
+
+.select-btn:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+/* Навигация */
+.resume-nav {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+}
+
+.nav-btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: #6b7280;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.nav-btn:hover {
+    background: #f3f4f6;
+    color: #111827;
+}
+
+.nav-btn.active {
+    background: #2563eb;
+    color: white;
+}
+
+/* Секции резюме */
+.resume-section {
+    display: none;
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.resume-section.active {
+    display: block;
+}
+
+.resume-section h2 {
+    font-size: 1.5rem;
+    color: #111827;
+    margin-bottom: 1.5rem;
+}
+
+/* Форма */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.date-range {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.date-range input {
+    flex: 1;
+}
+
+/* Кнопки добавления */
+.add-btn {
+    width: 100%;
+    padding: 1rem;
+    margin-top: 1rem;
+    border: 2px dashed #e5e7eb;
+    border-radius: 8px;
+    background: transparent;
+    color: #6b7280;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.add-btn:hover {
+    border-color: #2563eb;
+    color: #2563eb;
+    background: rgba(37, 99, 235, 0.05);
+}
+
+/* Навигационные кнопки */
+.navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    padding: 1rem;
+}
+
+.nav-button {
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.nav-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.nav-button.primary {
+    background: #2563eb;
+    color: white;
+}
+
+.nav-button.primary:hover {
+    background: #1d4ed8;
+}
+
+/* Разделители между секциями */
+.section:not(:last-child) {
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+}
+
+.project-item:not(:last-child) {
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.education-item:not(:last-child) {
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+} 
