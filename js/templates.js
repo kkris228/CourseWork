@@ -107,16 +107,64 @@ document.addEventListener('DOMContentLoaded', function() {
     if (exportPdfButton && previewContainer) {
         exportPdfButton.addEventListener('click', async () => {
             try {
+                // Создаем временный контейнер только для содержимого резюме
+                const resumeContent = previewContainer.querySelector('.resume-modern, .resume-creative, .resume-classic');
+                if (!resumeContent) {
+                    throw new Error('Не найден контент резюме');
+                }
+                
+                const element = resumeContent.cloneNode(true);
+                element.style.width = '210mm';
+                element.style.height = '297mm';
+                element.style.margin = '0';
+                element.style.padding = '0';
+                element.style.position = 'relative';
+                element.style.left = '0';
+                element.style.top = '0';
+                element.style.pageBreakAfter = 'avoid';
+                element.style.pageBreakBefore = 'avoid';
+                element.style.pageBreakInside = 'avoid';
+                
+                const wrapper = document.createElement('div');
+                wrapper.style.width = '210mm';
+                wrapper.style.height = '297mm';
+                wrapper.style.margin = '0';
+                wrapper.style.padding = '0';
+                wrapper.style.overflow = 'hidden';
+                wrapper.appendChild(element);
+                document.body.appendChild(wrapper);
+                
                 const opt = {
                     margin: 0,
                     filename: 'resume.pdf',
-                    image: { type: 'jpeg', quality: 0.98 },
-                    html2canvas: { scale: 2 },
-                    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+                    image: { type: 'jpeg', quality: 1 },
+                    html2canvas: { 
+                        scale: 2,
+                        useCORS: true,
+                        letterRendering: true,
+                        scrollY: 0,
+                        windowWidth: 210 * 3.78,
+                        windowHeight: 297 * 3.78,
+                        x: 0,
+                        y: 0,
+                        removeContainer: true
+                    },
+                    jsPDF: { 
+                        unit: 'mm', 
+                        format: 'a4', 
+                        orientation: 'portrait',
+                        precision: 16,
+                        compress: true,
+                        putOnlyUsedFonts: true,
+                        pagesplit: false
+                    },
+                    pagebreak: { mode: 'avoid-all' }
                 };
-                await html2pdf().set(opt).from(previewContainer).save();
+
+                await html2pdf().set(opt).from(wrapper).save();
+                document.body.removeChild(wrapper);
             } catch (error) {
-                console.error('Error generating PDF:', error);
+                console.error('Ошибка при экспорте в PDF:', error);
             }
         });
     }
@@ -438,242 +486,220 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Добавляем функцию для генерации HTML проектов
+// Обновляем функцию генерации HTML для проектов
 function generateProjectsHTML(projects) {
-    if (!projects || !projects.length) return '<p>Проекты не указаны</p>';
+    if (!projects || !projects.length) return '';
     
     return projects.map(project => `
         <div class="project-item">
             <h4>${project.name || ''}</h4>
             <p class="project-description">${project.description || ''}</p>
-            <p class="project-tech"><strong>Технологии:</strong> ${project.technologies || ''}</p>
-            <p class="project-link">${project.url || ''}</p>
-        </div>
-    `).join('');
+            <p class="project-tech">Технологии: ${project.technologies || ''}</p>
+            ${project.url ? `<a href="${project.url}" class="project-link">${project.url}</a>` : ''}
+        </div>`).join('');
 }
 
 // Обновляем шаблон Modern
 function generateModernTemplate(data) {
-    return `
-        <div class="resume-modern">
-            <div class="sidebar">
-                ${data.photo ? `<div class="profile-photo"><img src="${data.photo}" alt="Фото"></div>` : ''}
-                <div class="contact-info">
-                    <h3>КОНТАКТЫ</h3>
-                    <div class="contact-item">${data.personal.phone || ''}</div>
-                    <div class="contact-item">${data.personal.email || ''}</div>
-                    <div class="contact-item">${data.personal.location || ''}</div>
-                    ${data.links ? data.links.map(link => `
-                        <div class="contact-item">
-                            ${link.url}
-                        </div>
-                    `).join('') : ''}
-                </div>
-                
-                <div class="skills-section">
-                    <h3>НАВЫКИ</h3>
-                    ${generateSkillsHTML(data.skills)}
-                </div>
-                
-                <div class="languages-section">
-                    <h3>ЯЗЫКИ</h3>
-                    ${generateLanguagesHTML(data.languages)}
-                </div>
+    return `<div class="resume-modern">
+        <div class="sidebar">${data.photo ? `
+            <div class="profile-photo"><img src="${data.photo}" alt="Фото"></div>` : ''}
+            <div class="contact-info">
+                <h3>Контакты</h3>${data.personal.phone ? `
+                <div class="contact-item">${data.personal.phone}</div>` : ''}${data.personal.email ? `
+                <div class="contact-item">${data.personal.email}</div>` : ''}${data.personal.location ? `
+                <div class="contact-item">${data.personal.location}</div>` : ''}${data.links ? data.links.map(link => `
+                <div class="contact-item">${link.url}</div>`).join('') : ''}
             </div>
-
-            <div class="main-content">
-                <h1>${data.personal.fullName || ''}</h1>
-                <h2>${data.personal.position || ''}</h2>
-
-                <div class="section">
-                    <h3>ПРОФИЛЬ</h3>
-                    <p>${data.about || ''}</p>
-                </div>
-
-                <div class="section">
-                    <h3>ПРОЕКТЫ</h3>
-                    ${generateProjectsHTML(data.projects)}
-                </div>
-
-                <div class="section">
-                    <h3>ОПЫТ РАБОТЫ</h3>
-                    ${generateExperienceHTML(data.experience)}
-                </div>
-
-                <div class="section">
-                    <h3>ОБРАЗОВАНИЕ</h3>
-                    ${generateEducationHTML(data.education)}
-                </div>
+            <div class="skills-section">
+                <h3>Технологии</h3>
+                ${generateSkillsHTML(data.skills)}
+            </div>
+            <div class="languages-section">
+                <h3>Языки</h3>
+                ${generateLanguagesHTML(data.languages)}
             </div>
         </div>
-    `;
+        <div class="main-content">
+            <div class="header-section">
+                <h1>${data.personal.fullName || ''}</h1>
+                <h2>${data.personal.position || ''}</h2>
+            </div>${data.about ? `
+            <div class="section">
+                <h3>Профиль</h3>
+                <p class="description">${data.about}</p>
+            </div>` : ''}${data.experience && data.experience.length > 0 ? `
+            <div class="section">
+                <h3>Опыт работы</h3>
+                ${generateExperienceHTML(data.experience)}
+            </div>` : ''}${data.projects && data.projects.length > 0 ? `
+            <div class="section">
+                <h3>Проекты</h3>
+                ${generateProjectsHTML(data.projects)}
+            </div>` : ''}${data.education && data.education.length > 0 ? `
+            <div class="section">
+                <h3>Образование</h3>
+                ${generateEducationHTML(data.education)}
+            </div>` : ''}
+        </div>
+    </div>`;
 }
 
 // Обновляем шаблон Creative
 function generateCreativeTemplate(data) {
     return `
-        <div class="resume-creative">
-            <div class="header">
-                ${data.photo ? `<div class="profile-photo"><img src="${data.photo}" alt="Фото"></div>` : ''}
-                <h1>${data.personal.fullName || ''}</h1>
-                <h2>${data.personal.position || ''}</h2>
+    <div class="resume-creative">
+        <div class="header">
+            <div class="header-inner">
+                ${data.photo ? `
+                <div class="profile-photo">
+                    <img src="${data.photo}" alt="Фото">
+                </div>` : ''}
+                <div class="header-content">
+                    <h1>${data.personal.fullName || ''}</h1>
+                    <h2>${data.personal.position || ''}</h2>
+                </div>
             </div>
+        </div>
 
-            <div class="content-grid">
+        <div class="content-grid">
+            <div class="left-column">
+                ${data.about ? `
                 <div class="section-card">
-                    <h3>ПРОФИЛЬ</h3>
-                    <p>${data.about || ''}</p>
-                </div>
-
-                <div class="section-card">
-                    <h3>КОНТАКТЫ</h3>
-                    <div class="contact-info">
-                        <p>${data.personal.phone || ''}</p>
-                        <p>${data.personal.email || ''}</p>
-                        <p>${data.personal.location || ''}</p>
-                        ${data.links ? data.links.map(link => `
-                            <p>${link.url}</p>
-                        `).join('') : ''}
+                    <h3>О себе</h3>
+                    <div class="about-me">
+                        <p>${data.about}</p>
                     </div>
-                </div>
-
-                <div class="section-card projects">
-                    <h3>ПРОЕКТЫ</h3>
+                </div>` : ''}
+                
+                <div class="section-card">
+                    <h3>Проекты</h3>
                     ${generateProjectsHTML(data.projects)}
                 </div>
 
-                <div class="section-card experience">
-                    <h3>ОПЫТ РАБОТЫ</h3>
+                <div class="section-card">
+                    <h3>Опыт работы</h3>
                     ${generateExperienceHTML(data.experience)}
                 </div>
+            </div>
 
-                <div class="section-card education">
-                    <h3>ОБРАЗОВАНИЕ</h3>
-                    ${generateEducationHTML(data.education)}
-                </div>
-
+            <div class="right-column">
                 <div class="section-card">
-                    <h3>НАВЫКИ</h3>
+                    <h3>Навыки</h3>
                     ${generateSkillsHTML(data.skills)}
                 </div>
 
                 <div class="section-card">
-                    <h3>ЯЗЫКИ</h3>
-                    ${generateLanguagesHTML(data.languages)}
-                </div>
-            </div>
-        </div>
-    `;
-}
-
-// Обновляем шаблон Classic
-function generateClassicTemplate(data) {
-    return `
-        <div class="resume-classic">
-            <div class="sidebar">
-                ${data.photo ? `<div class="profile-photo"><img src="${data.photo}" alt="Фото"></div>` : ''}
-                <div class="section-title">КОНТАКТЫ</div>
-                <div class="divider"></div>
-                <div class="contact-info">
-                    <p>${data.personal.phone || ''}</p>
-                    <p>${data.personal.email || ''}</p>
-                    <p>${data.personal.location || ''}</p>
-                    ${data.links ? data.links.map(link => `
-                        <p>${link.url}</p>
-                    `).join('') : ''}
-                </div>
-
-                <div class="section-title">НАВЫКИ</div>
-                <div class="divider"></div>
-                ${generateSkillsHTML(data.skills)}
-
-                <div class="section-title">ЯЗЫКИ</div>
-                <div class="divider"></div>
-                ${generateLanguagesHTML(data.languages)}
-            </div>
-
-            <div class="main-content">
-                <h1>${data.personal.fullName || ''}</h1>
-                <h2>${data.personal.position || ''}</h2>
-
-                <div class="content-section">
-                    <div class="content-title">ПРОФИЛЬ</div>
-                    <div class="content-divider"></div>
-                    <p>${data.about || ''}</p>
-                </div>
-
-                <div class="content-section">
-                    <div class="content-title">ПРОЕКТЫ</div>
-                    <div class="content-divider"></div>
-                    ${generateProjectsHTML(data.projects)}
-                </div>
-
-                <div class="content-section">
-                    <div class="content-title">ОПЫТ РАБОТЫ</div>
-                    <div class="content-divider"></div>
-                    ${generateExperienceHTML(data.experience)}
-                </div>
-
-                <div class="content-section">
-                    <div class="content-title">ОБРАЗОВАНИЕ</div>
-                    <div class="content-divider"></div>
+                    <h3>Образование</h3>
                     ${generateEducationHTML(data.education)}
                 </div>
+
+                <div class="section-card">
+                    <h3>Языки</h3>
+                    ${generateLanguagesHTML(data.languages)}
+                </div>
+
+                <div class="section-card">
+                    <h3>Контакты</h3>
+                    <div class="contact-info">
+                        ${data.personal.phone ? `<p>${data.personal.phone}</p>` : ''}
+                        ${data.personal.email ? `<p>${data.personal.email}</p>` : ''}
+                        ${data.personal.location ? `<p>${data.personal.location}</p>` : ''}
+                        ${data.links ? data.links.map(link => `<p>${link.url}</p>`).join('') : ''}
+                    </div>
+                </div>
             </div>
         </div>
-    `;
+    </div>`;
 }
 
-// Вспомогательные функции для генерации HTML
+// Обновляем шаблон Classic - делаем идентичным Modern
+function generateClassicTemplate(data) {
+    return `<div class="resume-classic">
+        <div class="sidebar">${data.photo ? `
+            <div class="profile-photo"><img src="${data.photo}" alt="Фото"></div>` : ''}
+            <div class="contact-info">
+                <h3>Контакты</h3>${data.personal.phone ? `
+                <div class="contact-item">${data.personal.phone}</div>` : ''}${data.personal.email ? `
+                <div class="contact-item">${data.personal.email}</div>` : ''}${data.personal.location ? `
+                <div class="contact-item">${data.personal.location}</div>` : ''}${data.links ? data.links.map(link => `
+                <div class="contact-item">${link.url}</div>`).join('') : ''}
+            </div>
+            <div class="skills-section">
+                <h3>Технологии</h3>
+                ${generateSkillsHTML(data.skills)}
+            </div>
+            <div class="languages-section">
+                <h3>Языки</h3>
+                ${generateLanguagesHTML(data.languages)}
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="header-section">
+                <h1>${data.personal.fullName || ''}</h1>
+                <h2>${data.personal.position || ''}</h2>
+            </div>${data.about ? `
+            <div class="section">
+                <h3>Профиль</h3>
+                <p class="description">${data.about}</p>
+            </div>` : ''}${data.experience && data.experience.length > 0 ? `
+            <div class="section">
+                <h3>Опыт работы</h3>
+                ${generateExperienceHTML(data.experience)}
+            </div>` : ''}${data.projects && data.projects.length > 0 ? `
+            <div class="section">
+                <h3>Проекты</h3>
+                ${generateProjectsHTML(data.projects)}
+            </div>` : ''}${data.education && data.education.length > 0 ? `
+            <div class="section">
+                <h3>Образование</h3>
+                ${generateEducationHTML(data.education)}
+            </div>` : ''}
+        </div>
+    </div>`;
+}
+
+// Обновляем функцию генерации HTML для опыта работы
 function generateExperienceHTML(experience) {
-    if (!experience || !experience.length) return '<p>Нет опыта работы</p>';
+    if (!experience || !experience.length) return '';
     
     return experience.map(exp => `
         <div class="experience-item">
             <h4>${exp.position || ''}</h4>
             <h5>${exp.company || ''}</h5>
-            <p class="date">${exp.startDate || ''} - ${exp.endDate || ''}</p>
-            <p class="description">${exp.description || ''}</p>
-        </div>
-    `).join('');
+            <p class="period">${formatDate(exp.startDate) || ''} - ${formatDate(exp.endDate) || 'По настоящее время'}</p>${exp.description ? `
+            <p class="description">${exp.description}</p>` : ''}
+        </div>`).join('');
 }
 
+// Обновляем функцию генерации HTML для образования
 function generateEducationHTML(education) {
-    if (!education || !education.length) return '<p>Нет данных об образовании</p>';
+    if (!education || !education.length) return '';
     
     return education.map(edu => `
         <div class="education-item">
             <h4>${edu.institution || ''}</h4>
             <h5>${edu.degree || ''}</h5>
-            <p class="date">${edu.startYear || ''} - ${edu.endYear || ''}</p>
-            <p class="description">${edu.description || ''}</p>
-        </div>
-    `).join('');
+            <p class="period">${edu.startYear || ''} - ${edu.endYear || ''}</p>${edu.description ? `
+            <p class="description">${edu.description}</p>` : ''}
+        </div>`).join('');
 }
 
+// Обновляем функцию генерации HTML для навыков
 function generateSkillsHTML(skills) {
-    if (!skills || !skills.length) return '<p>Навыки не указаны</p>';
+    if (!skills || !skills.length) return '';
     
-    return `<ul class="skills-list">
-        ${skills.map(skill => `
-            <li>
-                <span class="skill-name">${skill.skill || ''}</span>
-                <span class="skill-level">${skill.experience ? `${skill.experience} ч.` : ''}</span>
-            </li>
-        `).join('')}
+    return `<ul class="skills-list">${skills.map(skill => `
+        <li><span class="skill-name">${skill.skill || ''}</span></li>`).join('')}
     </ul>`;
 }
 
+// Обновляем функцию генерации HTML для языков
 function generateLanguagesHTML(languages) {
-    if (!languages || !languages.length) return '<p>Языки не указаны</p>';
+    if (!languages || !languages.length) return '';
     
-    return `<ul class="languages-list">
-        ${languages.map(lang => `
-            <li>
-                <span class="language-name">${lang.language || ''}</span>
-                <span class="language-level">${lang.level || ''}</span>
-            </li>
-        `).join('')}
+    return `<ul class="languages-list">${languages.map(lang => `
+        <li><span class="language-name">${lang.language || ''}</span>${lang.level ? ` - <span class="language-level">${lang.level}</span>` : ''}</li>`).join('')}
     </ul>`;
 }
 
@@ -702,4 +728,4 @@ function generateResumeHTML(template, data) {
         default:
             return '<p>Шаблон не найден</p>';
     }
-} 
+}

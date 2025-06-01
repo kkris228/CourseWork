@@ -72,14 +72,14 @@ const TEST_DATA = {
         }
     ],
     skills: [
-        { skill: "React.js", experience: "2000" },
-        { skill: "TypeScript", experience: "1800" },
-        { skill: "JavaScript", experience: "3000" },
-        { skill: "HTML5/CSS3", experience: "2500" },
-        { skill: "Redux", experience: "1500" },
-        { skill: "Node.js", experience: "1000" },
-        { skill: "Git", experience: "1200" },
-        { skill: "Webpack", experience: "800" }
+        { skill: "React.js" },
+        { skill: "TypeScript" },
+        { skill: "JavaScript" },
+        { skill: "HTML5/CSS3" },
+        { skill: "Redux" },
+        { skill: "Node.js" },
+        { skill: "Git" },
+        { skill: "Webpack" }
     ],
     languages: [
         { language: "Русский", level: "Родной" },

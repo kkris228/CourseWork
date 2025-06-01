@@ -725,60 +725,195 @@ h2 {
     }
 }
 
-/* Стили для проектов */
-.project-entry {
-    background: #f8f9fa;
-    border: 1px solid #dee2e6;
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 20px;
+/* Стили для предпросмотра резюме */
+.resume-preview {
+    width: 210mm;
+    height: 297mm;
+    margin: 20px auto;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    font-size: 11px;
     position: relative;
+    box-sizing: border-box;
+    padding: 0;
+    /* Важные стили для корректного PDF экспорта */
+    page-break-after: always;
+    page-break-inside: avoid;
 }
 
-.project-entry .form-group {
-    margin-bottom: 15px;
+@media print {
+    .resume-preview {
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+        width: 210mm;
+        height: 297mm;
+    }
+    
+    body {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.resume-modern {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.resume-modern .sidebar {
+    width: 70mm;
+    height: 100%;
+    padding: 12mm 8mm; /* Уменьшаем отступы */
+    background: #2c3e50;
+    color: white;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 8mm;
+}
+
+.resume-modern .main-content {
+    width: 140mm;
+    height: 100%;
+    padding: 12mm 10mm; /* Уменьшаем отступы */
+    box-sizing: border-box;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    gap: 8mm;
+}
+
+/* Стили для содержимого резюме */
+.resume-modern h1 {
+    font-size: 16px;
+    margin-bottom: 4mm;
+}
+
+.resume-modern h2 {
+    font-size: 14px;
+    margin-bottom: 3mm;
+}
+
+.resume-modern h3 {
+    font-size: 12px;
+    margin-bottom: 2mm;
+    color: inherit;
+}
+
+.resume-modern p {
+    font-size: 11px;
+    margin-bottom: 2mm;
+    line-height: 1.3;
+}
+
+.resume-modern .section {
+    margin-bottom: 8mm;
+}
+
+.resume-modern .profile-photo {
+    width: 30mm;
+    height: 30mm;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 6mm;
+}
+
+.resume-modern .profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.resume-modern .contact-info {
+    margin-bottom: 6mm;
+}
+
+.resume-modern .contact-info div {
+    margin-bottom: 1.5mm;
+    font-size: 10px;
+    line-height: 1.2;
+}
+
+.resume-modern .skills-list,
+.resume-modern .languages-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 6mm 0;
+}
+
+.resume-modern .skills-list li,
+.resume-modern .languages-list li {
+    margin-bottom: 1.5mm;
+    font-size: 10px;
+    line-height: 1.2;
+}
+
+.resume-modern .project-item {
+    margin-bottom: 6mm;
+}
+
+.resume-modern .project-item:last-child {
+    margin-bottom: 0;
+}
+
+.resume-modern .project-item h4 {
+    font-size: 12px;
+    margin-bottom: 1.5mm;
+}
+
+.resume-modern .project-item p {
+    font-size: 10px;
+    margin-bottom: 1mm;
+    line-height: 1.2;
+}
+
+/* Адаптивность для маленьких экранов */
+@media screen and (max-width: 210mm) {
+    .resume-preview {
+        width: 100%;
+        transform: scale(0.9);
+        transform-origin: top center;
+        margin: 0 auto;
+    }
+}
+
+/* Обновляем стили для проектов */
+.projects-container {
+    display: block;
+}
+
+.project-entry {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.project-entry:last-child {
+    margin-bottom: 0;
 }
 
 .project-entry .form-group:last-child {
     margin-bottom: 0;
 }
 
-.project-entry textarea {
-    min-height: 100px;
-    resize: vertical;
+.remove-project {
+    margin-top: 1rem;
+    width: 100%;
 }
 
-.project-entry .remove-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: #dc3545;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-.project-entry .remove-btn:hover {
-    background: #c82333;
-}
-
-#add-project {
-    background: #28a745;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: 10px;
-}
-
-#add-project:hover {
-    background: #218838;
+/* Адаптивность для маленьких экранов */
+@media screen and (max-width: 210mm) {
+    .resume-preview {
+        width: 100%;
+        transform: scale(0.9);
+        transform-origin: top center;
+        margin: 0 auto;
+    }
 }

@@ -1,19 +1,21 @@
 /* Общие стили для всех шаблонов */
 .resume-preview {
     background: white;
-    width: 210mm;  /* Ширина A4 */
-    min-height: 297mm; /* Высота A4 */
+    width: 210mm;
+    height: 297mm;
     margin: 0 auto;
     padding: 0;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     font-family: 'Inter', sans-serif;
     position: relative;
     overflow: hidden;
+    box-sizing: border-box;
+    page-break-inside: avoid;
 }
 
 /* Общие стили для секций */
 .section {
-    margin-bottom: 15px;
+    margin-bottom: 1mm;
     page-break-inside: avoid;
 }
 
@@ -27,29 +29,34 @@
 /* Стили для Modern шаблона */
 .resume-modern {
     display: grid;
-    grid-template-columns: 75mm 135mm;
-    min-height: 297mm;
+    grid-template-columns: 70mm 140mm;
+    height: 297mm;
+    margin: 0;
+    padding: 0;
 }
 
 .resume-modern .sidebar {
     background: #2c3e50;
     color: white;
-    padding: 30px 20px;
-    height: 100%;
+    padding: 6mm 5mm;
+    height: 297mm;
+    box-sizing: border-box;
 }
 
 .resume-modern .main-content {
-    padding: 30px 25px;
+    padding: 6mm 7mm;
     background: white;
+    height: 297mm;
+    box-sizing: border-box;
 }
 
 .resume-modern .profile-photo {
-    width: 120px;
-    height: 120px;
-    border-radius: 60px;
+    width: 32mm;
+    height: 32mm;
+    border-radius: 50%;
     overflow: hidden;
-    margin: 0 auto 20px;
-    border: 3px solid white;
+    margin: 0 auto 0.5mm;
+    border: 2px solid white;
 }
 
 .resume-modern .profile-photo img {
@@ -59,190 +66,351 @@
 }
 
 .resume-modern .contact-info {
-    margin-bottom: 25px;
+    margin-bottom: 1mm;
 }
 
 .resume-modern .contact-item {
-    margin-bottom: 8px;
-    font-size: 14px;
+    margin-bottom: 0.3mm;
+    font-size: 12pt;
+    line-height: 1.1;
 }
 
 .resume-modern .skills-list,
 .resume-modern .languages-list {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 0 0 1mm 0;
 }
 
 .resume-modern .skills-list li,
 .resume-modern .languages-list li {
-    margin-bottom: 8px;
-    font-size: 14px;
+    margin-bottom: 0.3mm;
+    font-size: 12pt;
+    line-height: 1.1;
+    font-weight: 500;
 }
 
 .resume-modern h1 {
-    font-size: 28px;
-    margin: 0 0 5px 0;
+    font-size: 24pt;
+    margin: 0;
     color: #2c3e50;
+    line-height: 1;
+    font-weight: 700;
 }
 
 .resume-modern h2 {
-    font-size: 18px;
-    margin: 0 0 20px 0;
+    font-size: 16pt;
+    margin: 0 0 1mm 0;
     color: #7f8c8d;
+    line-height: 1;
+    font-weight: 600;
+}
+
+.resume-modern h3 {
+    font-size: 14pt;
+    margin: 0 0 0.5mm 0;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding-bottom: 0.5mm;
+}
+
+.resume-modern .section {
+    margin-bottom: 1.5mm;
 }
 
 .resume-modern .experience-item,
 .resume-modern .education-item {
-    margin-bottom: 15px;
+    margin-bottom: 1mm;
+    padding-bottom: 0.3mm;
+}
+
+.resume-modern .experience-item:last-child,
+.resume-modern .education-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.resume-modern .experience-item h4,
+.resume-modern .education-item h4 {
+    font-size: 13pt;
+    margin: 0;
+    color: #2c3e50;
+    line-height: 1.1;
+    font-weight: 700;
+}
+
+.resume-modern .experience-item h5,
+.resume-modern .education-item h5 {
+    font-size: 12pt;
+    margin: 0;
+    color: #34495e;
+    line-height: 1.1;
+    font-weight: 600;
 }
 
 .resume-modern .period {
-    font-size: 14px;
+    font-size: 11pt;
     color: #7f8c8d;
-    margin: 5px 0;
+    margin: 0.2mm 0;
+    line-height: 1.1;
+    font-style: italic;
+}
+
+.resume-modern .description {
+    font-size: 13pt;
+    line-height: 1.1;
+    margin: 0.2mm 0;
+    color: #444;
+}
+
+/* Стили для проектов в Modern шаблоне */
+.resume-modern .project-item {
+    margin-bottom: 2mm;
+    padding-bottom: 0.5mm;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.resume-modern .project-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.resume-modern .project-item h4 {
+    font-size: 15pt;
+    margin: 0 0 0.5mm 0;
+    line-height: 1.2;
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+.resume-modern .project-description {
+    font-size: 14pt;
+    margin: 0.5mm 0;
+    line-height: 1.2;
+}
+
+.resume-modern .project-tech {
+    font-size: 13pt;
+    margin: 0.5mm 0;
+    line-height: 1.2;
+    font-weight: 500;
+    color: #34495e;
+}
+
+.resume-modern .project-link {
+    font-size: 12pt;
+    margin: 0.5mm 0;
+    word-break: break-all;
+    line-height: 1.2;
+    color: #3498db;
+}
+
+/* Убираем нижний отступ у последних элементов в секциях */
+.resume-modern .section:last-child {
+    margin-bottom: 0;
+}
+
+.resume-modern .skills-list li:last-child,
+.resume-modern .languages-list li:last-child {
+    margin-bottom: 0;
 }
 
 /* Стили для Creative шаблона */
 .resume-creative {
-    min-height: 297mm;
+    width: 210mm;
+    height: 297mm;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: white;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .resume-creative .header {
     background: linear-gradient(135deg, #6c5ce7, #a363d5);
-    color: white;
-    padding: 40px 30px;
-    text-align: center;
+    position: relative;
+    margin: 0;
+    padding: 6mm;
+    height: 35mm;
+}
+
+.resume-creative .header::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 12mm;
+    background: white;
+    clip-path: polygon(0 50%, 100% 0, 100% 100%, 0% 100%);
+}
+
+.resume-creative .header-inner {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    gap: 5mm;
+    height: 100%;
 }
 
 .resume-creative .profile-photo {
-    width: 150px;
-    height: 150px;
-    border-radius: 75px;
-    margin: 0 auto 20px;
-    border: 5px solid rgba(255,255,255,0.3);
+    width: 26mm;
+    height: 26mm;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.9);
     overflow: hidden;
+    background: white;
+    flex-shrink: 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .resume-creative .profile-photo img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
+}
+
+.resume-creative .header-content {
+    flex-grow: 1;
+}
+
+.resume-creative h1 {
+    font-size: 22pt;
+    margin: 0 0 2mm 0;
+    font-weight: 700;
+    line-height: 1.1;
+    color: white;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.resume-creative h2 {
+    font-size: 12pt;
+    margin: 0;
+    font-weight: 500;
+    color: rgba(255,255,255,0.95);
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .resume-creative .content-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    padding: 30px;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 4mm;
+    padding: 6mm;
+    background: #f8f9fa;
 }
 
 .resume-creative .section-card {
     background: white;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-radius: 2mm;
+    padding: 3mm;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    margin-bottom: 4mm;
 }
 
-.resume-creative h1 {
-    font-size: 32px;
-    margin: 0 0 5px 0;
+.resume-creative .section-card:last-child {
+    margin-bottom: 0;
 }
 
-.resume-creative h2 {
-    font-size: 20px;
-    margin: 0;
-    opacity: 0.9;
+.resume-creative h3 {
+    font-size: 10pt;
+    margin: 0 0 2mm 0;
+    font-weight: 700;
+    color: #6c5ce7;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1mm;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-/* Стили для Classic шаблона */
-.resume-classic {
-    display: grid;
-    grid-template-columns: 65mm 145mm;
-    min-height: 297mm;
+.resume-creative .project-item {
+    margin-bottom: 1mm;
+    padding-bottom: 1mm;
+    border-bottom: 1px solid #eee;
 }
 
-.resume-classic .sidebar {
-    background: #f5f6fa;
-    padding: 30px 20px;
-    border-right: 1px solid #ddd;
+.resume-creative .project-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
 }
 
-.resume-classic .main-content {
-    padding: 30px 25px;
-    background: white;
-}
-
-.resume-classic .profile-photo {
-    width: 130px;
-    height: 130px;
-    border-radius: 5px;
-    overflow: hidden;
-    margin: 0 auto 20px;
-    border: 1px solid #ddd;
-}
-
-.resume-classic .profile-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.resume-classic .divider {
-    height: 2px;
-    background: #2c3e50;
-    margin: 5px 0 15px;
-}
-
-.resume-classic h1 {
-    font-size: 26px;
-    margin: 0 0 5px 0;
-    color: #2c3e50;
-}
-
-.resume-classic h2 {
-    font-size: 18px;
-    margin: 0 0 20px 0;
-    color: #7f8c8d;
-}
-
-.resume-classic .content-section {
-    margin-bottom: 20px;
-}
-
-.resume-classic .content-title {
-    color: #2c3e50;
-    font-size: 18px;
+.resume-creative .project-item h4 {
+    font-size: 9pt;
+    margin: 0 0 0.2mm 0;
     font-weight: 600;
-    margin-bottom: 5px;
+    color: #2c3e50;
+    line-height: 1.1;
 }
 
-.resume-classic .content-divider {
-    height: 1px;
-    background: #ddd;
-    margin-bottom: 15px;
+.resume-creative .project-description {
+    font-size: 8pt;
+    margin: 0 0 0.2mm 0;
+    line-height: 1.1;
+    color: #444;
 }
 
-/* Адаптивные стили для текста */
-.experience-item h4,
-.education-item h4 {
-    font-size: 16px;
-    margin: 0 0 5px 0;
+.resume-creative .project-tech {
+    font-size: 7.5pt;
+    margin: 0 0 0.2mm 0;
+    color: #666;
+    line-height: 1.1;
+}
+
+.resume-creative .project-link {
+    font-size: 7.5pt;
+    margin: 0;
+    color: #6c5ce7;
+    word-break: break-all;
+    line-height: 1.1;
+}
+
+.resume-creative .contact-info p {
+    margin: 0 0 1mm 0;
+    font-size: 9pt;
+    line-height: 1.2;
     color: #2c3e50;
 }
 
+.resume-creative .contact-info p:last-child {
+    margin-bottom: 0;
+}
+
+.resume-creative .skills-list,
+.resume-creative .languages-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1mm;
+}
+
+.resume-creative .skills-list li,
+.resume-creative .languages-list li {
+    font-size: 9pt;
+    color: #2c3e50;
+    font-weight: 500;
+    padding: 0.8mm 1.5mm;
+    background: #f8f9fa;
+    border-radius: 2px;
+}
+
+/* Общие стили для элементов */
 .company,
 .degree {
     font-size: 15px;
     color: #34495e;
     margin: 0 0 5px 0;
-}
-
-.description {
-    font-size: 14px;
-    color: #666;
-    margin: 5px 0;
-    line-height: 1.4;
 }
 
 .skill-name,
@@ -326,30 +494,31 @@
 }
 
 .button {
-    padding: 10px 20px;
-    border-radius: 4px;
-    border: none;
-    cursor: pointer;
-    font-size: 14px;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 8px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
     transition: all 0.2s;
 }
 
 .button svg {
     width: 20px;
     height: 20px;
+    stroke: currentColor;
 }
 
 .button-secondary {
-    background: #f8f9fa;
-    border: 1px solid #dee2e6;
-    color: #495057;
+    background: #f3f4f6;
+    color: #374151;
 }
 
 .button-secondary:hover {
-    background: #e9ecef;
+    background: #e5e7eb;
 }
 
 .export-buttons {
@@ -357,108 +526,124 @@
     gap: 10px;
 }
 
-/* Стили для карточек шаблонов */
 .templates-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 30px 0;
 }
 
 .template-card {
     background: white;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: all 0.2s;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
 
 .template-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
 .template-card img {
     width: 100%;
     height: auto;
-    margin-bottom: 15px;
-    border-radius: 4px;
+    display: block;
+    border-bottom: 1px solid #eee;
 }
 
 .template-card h3 {
-    margin: 0 0 10px 0;
-    color: #2c3e50;
+    margin: 0;
+    padding: 20px 20px 10px;
 }
 
 .template-card p {
-    margin: 0 0 15px 0;
+    margin: 0;
+    padding: 0 20px 20px;
     color: #666;
-    font-size: 14px;
 }
 
 .template-card button {
     width: 100%;
-    padding: 10px;
-    margin: 5px 0;
+    padding: 12px;
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    background: none;
     font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
     transition: all 0.2s;
 }
 
 .preview-btn {
-    background: #f8f9fa;
-    color: #495057;
-    border: 1px solid #dee2e6;
+    color: #666;
+    border-top: 1px solid #eee;
 }
 
 .select-btn {
-    background: #2c3e50;
+    background: #2563eb;
     color: white;
 }
 
 .preview-btn:hover {
-    background: #e9ecef;
+    background: #f3f4f6;
 }
 
 .select-btn:hover {
-    background: #34495e;
+    background: #1d4ed8;
 }
 
-/* Стили для печати */
 @media print {
+    @page {
+        size: A4;
+        margin: 0;
+    }
+    
     body {
         margin: 0;
         padding: 0;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        width: 210mm;
+        height: 297mm;
+        position: relative;
+        left: 0;
+        top: 0;
     }
 
     .resume-preview {
         width: 210mm;
         height: 297mm;
-        margin: 0;
+        margin: 0 !important;
         padding: 0;
         box-shadow: none;
+        overflow: hidden;
+        position: absolute;
+        left: 0;
+        top: 0;
     }
 
     .resume-modern,
     .resume-creative,
     .resume-classic {
-        page-break-after: always;
-    }
-
-    .modal-header,
-    .modal-footer {
-        display: none;
+        page-break-inside: avoid;
+        margin: 0;
+        padding: 0;
+        position: relative;
+        left: 0;
+        top: 0;
     }
 
     .modal-content {
-        box-shadow: none;
+        margin: 0;
+        padding: 0;
+        width: 210mm;
+        height: 297mm;
     }
 
     .modal-body {
         padding: 0;
+        margin: 0;
     }
 }
 
@@ -516,6 +701,253 @@
     border: none;
 }
 
+/* Стили для Classic шаблона */
+.resume-classic {
+    display: grid;
+    grid-template-columns: 70mm 140mm;
+    height: 297mm;
+    margin: 0;
+    padding: 0;
+}
+
+.resume-classic .sidebar {
+    background: #2C3639;
+    color: #DCD7C9;
+    padding: 6mm 5mm;
+    height: 297mm;
+    box-sizing: border-box;
+}
+
+.resume-classic .main-content {
+    padding: 6mm 8mm;
+    background: white;
+    height: 297mm;
+    box-sizing: border-box;
+}
+
+.resume-classic .profile-photo {
+    width: 35mm;
+    height: 35mm;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 6mm;
+    border: 2px solid #DCD7C9;
+}
+
+.resume-classic .profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.resume-classic .contact-info {
+    margin-bottom: 5mm;
+}
+
+.resume-classic .contact-item {
+    margin-bottom: 2mm;
+    font-size: 10pt;
+    line-height: 1.2;
+}
+
+.resume-classic .skills-list,
+.resume-classic .languages-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 4mm 0;
+}
+
+.resume-classic .skills-list li,
+.resume-classic .languages-list li {
+    margin-bottom: 1mm;
+    font-size: 10pt;
+    line-height: 1.1;
+    font-weight: 500;
+}
+
+.resume-classic h1 {
+    font-size: 22pt;
+    margin: 0 0 2mm 0;
+    color: #2C3639;
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+.resume-classic h2 {
+    font-size: 13pt;
+    margin: 0 0 6mm 0;
+    color: #3F4E4F;
+    line-height: 1.2;
+    font-weight: 600;
+}
+
+.resume-classic h3 {
+    font-size: 11pt;
+    margin: 0 0 3mm 0;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.2;
+    color: #2C3639;
+    border-bottom: 1px solid #2C3639;
+    padding-bottom: 0.5mm;
+}
+
+.resume-classic .section {
+    margin-bottom: 4mm;
+}
+
+.resume-classic .experience-item,
+.resume-classic .education-item {
+    margin-bottom: 2mm;
+    padding-bottom: 0;
+}
+
+.resume-classic .experience-item:last-child,
+.resume-classic .education-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.resume-classic .experience-item h4,
+.resume-classic .education-item h4 {
+    font-size: 10pt;
+    margin: 0;
+    color: #2C3639;
+    line-height: 1.1;
+    font-weight: 700;
+}
+
+.resume-classic .experience-item h5,
+.resume-classic .education-item h5 {
+    font-size: 9.5pt;
+    margin: 0;
+    color: #3F4E4F;
+    line-height: 1.1;
+    font-weight: 600;
+}
+
+.resume-classic .period {
+    font-size: 9pt;
+    color: #A27B5C;
+    margin: 0;
+    line-height: 1.1;
+    font-style: italic;
+}
+
+.resume-classic .description {
+    font-size: 10pt;
+    line-height: 1.3;
+    margin: 0;
+    color: #3F4E4F;
+}
+
+/* Стили для проектов в Classic шаблоне */
 .resume-classic .project-item {
-    border-bottom-color: #ddd;
+    margin-bottom: 3mm;
+    padding-bottom: 3mm;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.resume-classic .project-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.resume-classic .project-item h4 {
+    font-size: 11pt;
+    margin: 0 0 2mm 0;
+    line-height: 1.2;
+    font-weight: 700;
+    color: #2C3639;
+}
+
+.resume-classic .project-description {
+    font-size: 10pt;
+    margin: 0 0 2mm 0;
+    line-height: 1.3;
+    color: #3F4E4F;
+}
+
+.resume-classic .project-tech {
+    font-size: 10pt;
+    margin: 0 0 1mm 0;
+    line-height: 1.2;
+    font-weight: 500;
+    color: #A27B5C;
+}
+
+.resume-classic .project-link {
+    font-size: 10pt;
+    margin: 0;
+    word-break: break-all;
+    line-height: 1.2;
+    color: #2C3639;
+    text-decoration: none;
+}
+
+.resume-classic .project-link:hover {
+    color: #A27B5C;
+}
+
+/* Убираем нижний отступ у последних элементов в секциях */
+.resume-classic .section:last-child {
+    margin-bottom: 0;
+}
+
+.resume-classic .skills-list li:last-child,
+.resume-classic .languages-list li:last-child {
+    margin-bottom: 0;
+}
+
+/* Добавляем стили для заголовков в боковой панели */
+.resume-classic .sidebar h3 {
+    font-size: 11pt;
+    margin: 0 0 3mm 0;
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 1.2;
+    color: #DCD7C9;
+    border-bottom: 1px solid rgba(220, 215, 201, 0.3);
+    padding-bottom: 1mm;
+}
+
+/* Оптимизируем отступы списков */
+.resume-classic .skills-list,
+.resume-classic .languages-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 4mm 0;
+}
+
+/* Оптимизируем секцию образования */
+.resume-classic .education-item {
+    margin-bottom: 2mm;
+    padding-bottom: 0;
+}
+
+.resume-classic .education-item h4 {
+    font-size: 10pt;
+    margin: 0;
+    line-height: 1.1;
+}
+
+.resume-classic .education-item h5 {
+    font-size: 9.5pt;
+    margin: 0;
+    line-height: 1.1;
+}
+
+.resume-classic .education-item .period {
+    font-size: 9pt;
+    margin: 0;
+    line-height: 1.1;
+}
+
+/* Оптимизируем отступы в основном контенте */
+.resume-classic .main-content {
+    padding: 6mm 8mm;
+    background: white;
+    height: 297mm;
+    box-sizing: border-box;
 } 
